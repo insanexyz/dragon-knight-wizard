@@ -2,6 +2,6 @@
 
 A fun little alternative to traditional rock paper scissor game.
 
-Try -> dkw.insanelogs.xyz
+Try -> https://dkw.insanelogs.xyz
 
 !["Example image"](./examples/dkw-example-image-1.png)
