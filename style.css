@@ -20,6 +20,7 @@ body {
   padding: 20px;
   font-family: "Jacquard 24";
   font-size: 40px;
+  color: #f38ba8;
 }
 
 .hero {
@@ -31,6 +32,11 @@ body {
 
 .hero p {
   margin-bottom: 10px;
+}
+
+.hero .hello-stranger {
+  font-size: 24px;
+  color: #f9e2af;
 }
 
 .display-rules {
@@ -72,6 +78,50 @@ body {
   margin-bottom: 25%;
 }
 
+.username-popup {
+  position: absolute;
+  z-index: 4;
+  background-color: #11111b;
+  padding: 100px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.6), /* soft depth */
+    0 0 20px rgba(180, 190, 254, 0.3), /* lavender glow */
+    0 0 40px rgba(180, 190, 254, 0.15); /* extended glow */
+  border: 1px solid rgba(180, 190, 254, 0.3);
+  border-radius: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -50%) scale(0.95);
+  transition:
+    opacity 0.5s ease-in-out,
+    transform 0.5s ease-in-out,
+    visibility 0s linear 0.5s; /* hide only after fade-out */
+}
+
+.username-popup.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+  transition:
+    opacity 0.5s ease-in-out,
+    transform 0.5s ease-in-out;
+}
+
+.username-popup p {
+  margin-bottom: 20px;
+}
+
+.username-popup input {
+  width: 90%;
+  padding: 10px 20px;
+  font-size: 24px;
+  border-radius: 10px;
+  background-color: #89dceb;
+}
 
 .result-container {
   display: flex;

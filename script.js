@@ -8,7 +8,10 @@ const battleInfo = document.querySelector(".battle-info");
 const displayRules = document.querySelector(".display-rules");
 const rulesBtn = document.querySelector(".rules-open-btn");
 const rulesCloseBtn = document.querySelector(".rules-close-btn");
-const username = prompt("Enter username (very cool way to get username huh): ");
+const usernamePopup = document.querySelector(".username-popup");
+const usernameElement = document.querySelector("#username");
+let username = usernameElement.value;
+const helloStranger = document.querySelector(".hello-stranger");
 
 let computerChoice = "";
 let playerChoice = "";
@@ -28,6 +31,16 @@ const loseMessages = {
   knight: "Knight got burnt by the dragon",
   wizard: "Wizard got slaughtered by the knight"
 };
+
+// Get username
+usernamePopup.classList.add("show");
+usernameElement.addEventListener("keyup", (event) => {
+  if (event.keyCode == 13) {
+    username = usernameElement.value.toLowerCase();
+    usernamePopup.classList.remove("show");
+    helloStranger.textContent = `💀 Hello, ${username} 💀`;
+  }
+})
 
 function getComputerChoice() {
   let rn = Math.floor(Math.random() * 3); // returns random number from 0 to 2
