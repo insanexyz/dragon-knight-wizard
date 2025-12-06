@@ -1,11 +1,10 @@
-const rock = document.querySelector(".rock");
-const paper = document.querySelector(".paper");
-const scissor = document.querySelector(".scissor");
+const humanChoiceButtons = document.querySelector(".human-choice-buttons");
 const computerChoiceDisplayArea = document.querySelector(".computer-choice-display-area");
 const humanChoiceDisplayArea = document.querySelector(".human-choice-display-area");
 const whoWonArea = document.querySelector(".who-won-area");
 const clearButton = document.querySelector(".clear-btn");
 const textArea = document.querySelector(".text-area");
+
 let humanChoice = 0;
 let computerChoice = 0;
 let humanScore = 0;
@@ -21,12 +20,10 @@ function getComputerChoice() {
 }
 
 
-["rock", "paper", "scissor"].forEach(choice => {
-    document.querySelector("." + choice).addEventListener("click", () => {
-        humanChoice = choice;
-        humanChoiceDisplayArea.textContent = "You chose " + humanChoice;
-        playRound(humanChoice, computerChoice);
-    })
+humanChoiceButtons.addEventListener("click", (event) => {
+  humanChoice = event.target.id;
+  humanChoiceDisplayArea.textContent = "You chose " + humanChoice;
+  playRound(humanChoice, computerChoice);
 })
 
 
@@ -49,8 +46,10 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice == "paper" && computerChoice == "rock") ||
         (humanChoice == "scissor" && computerChoice == "paper")) {
         whoWonArea.textContent = "You won";
+        humanScore++;
     } else {
         whoWonArea.textContent = "Computer won";
+        computerScore++;
     }
 }
 
