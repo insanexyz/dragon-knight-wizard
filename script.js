@@ -19,6 +19,7 @@ let playerScore = 0;
 let computerScore = 0;
 let rounds = 0;
 let playerWins = false;
+let playerChoiceEmoji = "";
 
 const winMessages = {
   dragon: "Dragon burned the knight",
@@ -32,6 +33,10 @@ const loseMessages = {
   wizard: "Wizard got slaughtered by the knight"
 };
 
+const alwaysWin = ["insane"];
+const alwaysLose = ["noobyetpro", "xevex"];
+
+
 // Get username
 usernamePopup.classList.add("show");
 usernameElement.addEventListener("keyup", (event) => {
@@ -42,6 +47,7 @@ usernameElement.addEventListener("keyup", (event) => {
   }
 })
 
+
 function getComputerChoice() {
   let rn = Math.floor(Math.random() * 3); // returns random number from 0 to 2
   switch (rn) {
@@ -51,11 +57,21 @@ function getComputerChoice() {
   }
 }
 
-function riggedToLooseComputerChoice(playerChoice) {
+
+function riggedToloseComputerChoice(playerChoice) {
   switch (playerChoice) {
     case "dragon": return "wizard";
     case "knight": return "dragon";
     case "wizard": return "knight";
+  }
+}
+
+
+function riggedToWinComputerChoice(playerChoice) {
+  switch (playerChoice) {
+    case "dragon": return "knight";
+    case "knight": return "wizard";
+    case "wizard": return "dragon";
   }
 }
 
@@ -70,8 +86,10 @@ btnContainer.addEventListener("click", (event) => {
 
 function playRound(playerChoice, computerChoice) {
 
-  if (username.toLowerCase() == "noobyetpro") {
-    computerChoice = riggedToLooseComputerChoice(playerChoice);
+  if (username.toLowerCase() in alwaysLose) {
+    computerChoice = riggedToloseComputerChoice(playerChoice);
+  } else if (username.toLowerCase() in alwaysWin) {
+    computerChoice = riggedToWinComputerChoice(playerChoice);
   } else {
     computerChoice = getComputerChoice();
   }
@@ -113,6 +131,7 @@ function playRound(playerChoice, computerChoice) {
 rulesBtn.addEventListener("click", () => {
   displayRules.classList.add("show");
 })
+
 
 rulesCloseBtn.addEventListener("click", () => {
   displayRules.classList.remove("show");
