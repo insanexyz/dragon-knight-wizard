@@ -7,22 +7,51 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="human-choice-buttons">
-            <button class="btn" id="rock">rock</button> 
-            <button class="btn" id="paper">paper</button> 
-            <button class="btn" id="scissor">scissor</button> 
-        </div>
 
-        <div class="text-area">
-            <div class="human-choice-display-area"></div>
-            <div class="computer-choice-display-area"></div>
-            <div class="who-won-area"></div>
-        </div>
+    <div class="nav">
+      <h1>Dragon Knight Wizard</h1>
+    </div>
 
-        <button class="btn clear-btn">Clear screen</button>
+    <div class="display-rules">
+      <ul>
+        <li>Dragon burns knight</li>
+        <li>Wizard kills Dragon</li>
+        <li>Knight kills wizard</li>
+      </ul>
+      <button class="rules-btn rules-close-btn">Close</button>
+    </div>
+
+    <div class="hero">
+      <p>Choose your weapon</p>
+      <p class="battle-info">Begin the battle</p>
+    </div>
+
+    <div class="result-container">
+      <div class="result player-result">
+        <p class="result-emoji">?</p>
+        <p class="player-result-text">Player: 0</p>
+      </div>
+      <div class="result computer-result">
+        <p class="result-emoji">?</p>
+        <p class="computer-result-text">Computer: 0</p>
+      </div>
+    </div>
+
+    <div class="button-container">
+        <button class="btn" id="dragon">🐲</button> 
+        <button class="btn" id="knight">⚔️</button> 
+        <button class="btn" id="wizard">🪄</button> 
+    </div>
+
+    <div class="rounds">
+      Rounds: 0
+    </div>
+
+    <div class="rules-btn-container">
+      <button class="rules-open-btn rules-btn">Rules</button>
     </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>

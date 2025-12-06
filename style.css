@@ -1,24 +1,133 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: black;
-    color: white;
+@import url('https://fonts.googleapis.com/css2?family=Jacquard+24&family=Metamorphous&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    text-align: center;
+body {
+  background-color: #1e1e2e;
+  color: #cdd6f4;
+  font-size: 20px;
+  font-family: "Metamorphous";
+}
+
+.nav {
+  text-align: center;
+  margin-bottom: 50px;
+  background-color: #11111b;
+  padding: 20px;
+  font-family: "Jacquard 24";
+  font-size: 40px;
+}
+
+.hero {
+  max-width: max-content;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.hero p {
+  margin-bottom: 10px;
+}
+
+.display-rules {
+  position: absolute;
+  z-index: 2;
+  background-color: #11111b;
+  padding: 100px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.6), /* soft depth */
+    0 0 20px rgba(180, 190, 254, 0.3), /* lavender glow */
+    0 0 40px rgba(180, 190, 254, 0.15); /* extended glow */
+  border: 1px solid rgba(180, 190, 254, 0.3);
+  border-radius: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.5s ease-in-out,
+    visibility 0.5s linear;
+}
+
+.display-rules.show {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.5s ease-in-out,
+    visibility 0.5s linear;
+}
+
+.display-rules li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.display-rules ul {
+  margin-bottom: 25%;
+}
+
+
+.result-container {
+  display: flex;
+  margin: 0 auto;
+  width: 30vw;
+  margin-bottom: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result {
+  text-align: center;
+}
+
+.result .result-emoji {
+  font-size: 48px;
+}
+
+.button-container {
+  margin: 0 auto;
+  width: max-content;
+  margin-bottom: 50px;
 }
 
 .btn {
-    border: 1px solid black;
-    padding: 10px 25px;
-    border-radius: 10px;
+  padding: 50px;
+  font-size: 48px;
+  border-radius: 10px;
+  background-color: #181825;
+  border: none;
 }
 
+.rules-btn-container {
+  margin: 0 auto;
+  width: max-content;
+  margin-top: 50px;
+}
+
+.rules-btn {
+  padding: 15px 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  background-color: #181825;
+  border: none;
+  color: #f38ba8;
+}
+
+.btn:hover, .rules-btn:hover {
+  background-color: #313244;
+}
+
+.btn:active, .rules-btn:active {
+  background-color: #45475a;
+}
+
+.rounds {
+  max-width: max-content;
+  margin: 0 auto;
+}
