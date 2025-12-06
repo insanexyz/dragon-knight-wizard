@@ -8,6 +8,7 @@ const battleInfo = document.querySelector(".battle-info");
 const displayRules = document.querySelector(".display-rules");
 const rulesBtn = document.querySelector(".rules-open-btn");
 const rulesCloseBtn = document.querySelector(".rules-close-btn");
+const username = prompt("Enter username (very cool way to get username huh): ");
 
 let computerChoice = "";
 let playerChoice = "";
@@ -37,6 +38,14 @@ function getComputerChoice() {
   }
 }
 
+function riggedToLooseComputerChoice(playerChoice) {
+  switch (playerChoice) {
+    case "dragon": return "wizard";
+    case "knight": return "dragon";
+    case "wizard": return "knight";
+  }
+}
+
 
 btnContainer.addEventListener("click", (event) => {
   playerChoice = event.target.id;
@@ -47,7 +56,12 @@ btnContainer.addEventListener("click", (event) => {
 
 
 function playRound(playerChoice, computerChoice) {
-  computerChoice = getComputerChoice();
+
+  if (username.toLowerCase() == "noobyetpro") {
+    computerChoice = riggedToLooseComputerChoice(playerChoice);
+  } else {
+    computerChoice = getComputerChoice();
+  }
 
   switch (computerChoice) {
     case "dragon": computerResultEmoji.textContent = "🐉"; break;
