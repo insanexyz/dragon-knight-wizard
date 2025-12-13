@@ -86,9 +86,10 @@ btnContainer.addEventListener("click", (event) => {
 
 function playRound(playerChoice, computerChoice) {
 
-  if (username.toLowerCase() in alwaysLose) {
+  if (alwaysLose.includes(username.toLowerCase())) {
     computerChoice = riggedToloseComputerChoice(playerChoice);
-  } else if (username.toLowerCase() in alwaysWin) {
+    console.log("Haha lmao get rekt " + username);
+  } else if (alwaysWin.includes(username.toLowerCase())) {
     computerChoice = riggedToWinComputerChoice(playerChoice);
   } else {
     computerChoice = getComputerChoice();
